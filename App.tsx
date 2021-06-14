@@ -21,11 +21,10 @@ export default function App() {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={responsive.stylePicker('container')}>
-      <StatusBar style="dark" />
-      {width < 1000 ? <Header /> : null}
-      <Content />
-      <Menu />
-      <SecondaryMenu />
+        {width < 1000 ? <Header /> : null}
+        <Content />
+        <Menu />
+        <SecondaryMenu />
       </View>
     </SafeAreaView>
   );
@@ -58,25 +57,14 @@ const stylesLG = StyleSheet.create({
   content: {
     flex: .85,
   },
-  menu: {
-    flex: .15,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
 });
 
-const styles = StyleSheet.create({
+const baseStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'stretch',
     justifyContent: 'space-between',
-  },
-  header: {
-    backgroundColor: 'white',
-    flex: .1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   content: {
     backgroundColor: '#ffffff99',
@@ -84,45 +72,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  menu: {
-    backgroundColor: 'white',
-    flex: .1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  secondaryMenu: {
-    backgroundColor: 'transparent',
-    flex: .1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 32
-  }
 });
 
 const responsive = new Responsive(
   Constants.breakpoints,
   [stylesSM, stylesMD, stylesLG],
-  styles
+  baseStyles
 );
-
-/*
-const stylePicker = (label: string) => {
-  const {width} = useWindowDimensions();
-  let styling = [];
-  if ( styles[label] ) {
-    styling.push(styles[label]);
-  }
-  let i = widthPX.findIndex(w => {
-    return ( width <= w );
-  });
-  if ( i === -1 ) i = styleObj.length - 1;
-  const picked = styleObj[i];
-  // console.log(width, i, widthPX[i], picked);
-  if ( picked && picked[label] ) {
-    styling.push(picked[label]);
-  }
-  return styling;
-};
-*/

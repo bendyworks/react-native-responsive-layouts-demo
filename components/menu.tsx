@@ -36,7 +36,6 @@ const Menu = () => {
     const {width: w} = e.nativeEvent.layout;
     if ( w != width ) {
       setWidth(w);
-      console.log('setWidth', w)
     }
   }
 
@@ -62,9 +61,9 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
+    height: 35,
     resizeMode: 'contain',
     backgroundColor: 'black',
-    height: 35,
     marginBottom: 20
   },
   avatar: {
